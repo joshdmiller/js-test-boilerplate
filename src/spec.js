@@ -1,29 +1,53 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach } from './index';
+import { Animal, Primate } from './index';
 
-test( 'double fn', function ( test ) {
-  const actual = double( 5 );
-  const expected = 10;
+test( 'Animal', function ( test ) {
+  let animal, actual, expected;
 
-  test.equal( actual, expected, 'should double the value' );
+  animal = new Animal();
+  test.ok( animal instanceof Animal, 'should create an instance of Animal' );
 
-  test.end();
-});
-
-test( 'doubleXTimes', function ( test ) {
-  const actual = doubleXTimes( 5, 3 );
-  const expected = 40;
-
-  test.equal( actual, expected, 'should double 5 three times' );
+  animal = new Animal( 'new sound' );
+  expected = 'new sound';
+  actual = animal.sound;
+  test.equal( actual, expected, 'should overwrite the sound' );
 
   test.end();
 });
 
-test( 'doubleEach', function ( test ) {
-  const actual = doubleEach([ 0, 1, 2 ]);
-  const expected = [ 0, 2, 4 ];
+test( 'Animal.speak()', function ( test ) {
+  let expected, actual;
 
-  test.deepEqual( actual, expected, 'should double each in the array' );
+  const animal = new Animal();
+  expected = 'generic sound';
+
+  const animal2 = new Animal();
+  animal2.sound = 'another sound';
+  expected = 'another sound';
+
+  actual = animal.speak();
+  actual = animal2.speak();
+
+  test.equal( animal.speak, animal2.speak );
+
+  test.equal( actual, expected, 'should make a generic sound when it speaks' );
+  test.equal( actual, expected, 'should make a generic sound when it speaks' );
+
+  test.end();
+});
+
+test( 'Primate', function ( test ) {
+  let expected, actual;
+
+  const primate = new Primate();
+
+  test.ok( primate instanceof Primate, 'should be an instance of Primate' );
+  test.ok( primate instanceof Animal, 'should be an instance of Animal' );
+
+  // expected = Primate.SOUND;
+  actual = primate.speak();
+  expected = 'ooh ahah!';
+  test.equal( actual, expected, 'should make a primate sound when it speaks' );
 
   test.end();
 });

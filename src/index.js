@@ -1,26 +1,57 @@
-export function double ( x ) {
-  return x * 2;
-}
+// export function Animal() {}
 
-export function doubleXTimes ( x, num ) {
-  let result = x;
+// Animal.prototype.speak = function() {
+//   return('generic sound');
+// };
 
-  for ( let i = 1; i <= num; i++ ) {
-    // result = result * 2;
-    result = double( result );
+// export function Reptile() {}
+// Reptile.prototype = Object.create(Animal.prototype);
+
+// Reptile.prototype.speak = function() {
+//   return('rawr');
+// }
+
+// export function Primate() {}
+// Primate.prototype = Object.create(Animal.prototype);
+
+// Primate.prototype.speak = function() {
+//   return ('primate noise')
+// }
+
+// export function Human() {}
+// Human.prototype = Object.create(Primate.prototype);
+
+// Human.prototype.speak = function(words) {
+//   return (words);
+// }
+
+// --------------------------------------------------------------------------
+// USING ES6 CLASSES
+
+export class Animal {
+  constructor() {}
+
+  speak() {
+    return("generic sound");
   }
-
-  return result;
 }
 
-export function doubleEach ( arr ) {
-  let result = arr.map( double );
-
-  // const result = arr.map( x => double( x ) );
-  // const result = arr.map( function ( x ) {
-  //   return double( x );
-  // });
-
-  return result;
+export class Reptile extends Animal {
+  speak() {
+    return("rawr");
+  }
 }
+
+export class Primate extends Animal {
+  speak() {
+    return("primate noise");
+  }
+}
+
+export class Human extends Primate {
+  speak(words) {
+    return(words);
+  }
+}
+
 

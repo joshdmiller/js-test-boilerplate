@@ -29,3 +29,11 @@ export function Animal() {
   this.speak = 'generic sound';
 }
 
+export function Reptile()  {
+  Animal.apply(this);
+
+  this.speak = function() {
+    console.log('Hisss!');
+  };
+}
+

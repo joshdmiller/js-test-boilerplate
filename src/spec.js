@@ -1,5 +1,5 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach, Animal } from './index';
+import { double, doubleXTimes, doubleEach, Animal, Reptile } from './index';
 
 test( 'double fn', function ( test ) {
   const actual = double( 5 );
@@ -46,5 +46,23 @@ test ( 'Animal.speak', function ( test ) {
   test.equal( actual, expected, 'the animal should speak');
 
   test.end();
+});
+
+test ( 'animal inheritence', function ( test ) {
+  let actual, expected;
+
+  Reptile.prototype = new Animal();
+  const reptile = new Reptile();
+
+  test.ok( reptile instanceof Reptile, 'should be an instance of Reptile' );
+  test.ok( reptile instanceof Animal, 'should be an instance of Animal' );
+
+  expected = Reptile.SOUND; //not sure what Reptile.SOUND is
+  actual = reptile.speak();
+  
+  test.equal( actual, expected, 'should make a reptile sound when it speaks' );
+
+  test.end();
+
 });
 

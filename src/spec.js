@@ -51,7 +51,6 @@ test ( 'Animal.speak', function ( test ) {
 test ( 'animal inheritence', function ( test ) {
   let actual, expected;
 
-  Reptile.prototype = new Animal();
   const reptile = new Reptile();
 
   test.ok( reptile instanceof Reptile, 'should be an instance of Reptile' );

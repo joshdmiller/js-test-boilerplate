@@ -29,11 +29,12 @@ export function Animal() {
   this.speak = 'generic sound';
 }
 
-export function Reptile()  {
-  Animal.apply(this);
+Reptile.prototype = Object.create(Animal.prototype);
 
-  this.speak = function() {
-    console.log('Hisss!');
-  };
+export function Reptile() {
+  Animal.apply(this);
+  this.speak = () => console.log('Snakes be on a plane!');
 }
+
+//Reptile.prototype = Object.create(Animal.prototype);
 

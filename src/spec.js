@@ -28,3 +28,12 @@ test( 'doubleEach', function ( test ) {
   test.end();
 });
 
+
+test ( 'Animal', function (test) {
+  const animal = new Animal();
+
+	test.ok( animal instanceof Animal, 'should create an instance of Animal' );
+
+	test.end();
+})
+

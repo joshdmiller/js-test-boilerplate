@@ -27,3 +27,7 @@ Reptile.prototype = Object.create(Animal.prototype);
 export function Primate() {};
 
 Primate.prototype = Object.create(Animal.prototype);
+
+export function Human() {};
+
+Human.prototype = Object.create(Primate.prototype);

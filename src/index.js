@@ -24,3 +24,8 @@ export function doubleEach ( arr ) {
   return result;
 }
 
+export function Animal() {
+  this.name = 'generic name';
+  this.speak = 'generic sound';
+}
+

@@ -1,3 +1,5 @@
+import stampit from 'stampit';
+
 export function double ( x ) {
   return x * 2;
 }

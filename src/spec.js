@@ -1,5 +1,5 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach, Animal } from './index';
+import { double, doubleXTimes, doubleEach, Animal, Reptile } from './index';
 
 test( 'double fn', function ( test ) {
   const actual = double( 5 );
@@ -32,5 +32,14 @@ test('Animal exists', function(test) {
   const animal = new Animal();
 
   test.ok( animal instanceof Animal, 'should create an instance of Animal' );
+  test.end();
+});
+
+test('Animal has speak method', function(test) {
+  const animal = new Animal();
+  const expected = 'generic sound';
+  const actual = animal.speak(expected);
+
+  test.equal( actual, expected, 'should make a generic sound when it speaks' );
   test.end();
 });

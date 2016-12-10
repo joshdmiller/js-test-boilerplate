@@ -15,3 +15,7 @@ export function doubleEach ( arr ) {
 }
 
 export function Animal() {};
+
+Animal.prototype.speak = function(sound) {
+  return sound;
+}

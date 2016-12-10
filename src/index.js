@@ -13,3 +13,5 @@ export function doubleXTimes ( x, num ) {
 export function doubleEach ( arr ) {
   return arr.map( double );
 }
+
+export function Animal() {};

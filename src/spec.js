@@ -1,5 +1,5 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach } from './index';
+import { double, doubleXTimes, doubleEach, Animal } from './index';
 
 test( 'double fn', function ( test ) {
   const actual = double( 5 );
@@ -25,5 +25,12 @@ test( 'doubleEach', function ( test ) {
 
   test.deepEqual( actual, expected, 'should double each in the array' );
 
+  test.end();
+});
+
+test('Animal exists', function(test) {
+  const animal = new Animal();
+
+  test.ok( animal instanceof Animal, 'should create an instance of Animal' );
   test.end();
 });

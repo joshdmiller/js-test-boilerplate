@@ -19,3 +19,11 @@ export function Animal() {};
 Animal.prototype.speak = function(sound) {
   return sound;
 }
+
+export function Reptile() {};
+
+Reptile.prototype = Object.create(Animal.prototype);
+
+export function Primate() {};
+
+Primate.prototype = Object.create(Animal.prototype);

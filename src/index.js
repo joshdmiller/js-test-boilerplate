@@ -29,10 +29,10 @@ export function Animal() {
   this.speak = 'generic sound';
 }
 
+Reptile.prototype = Object.create(Animal.prototype);
+
 export function Reptile() {
   Animal.apply(this);
   this.speak = () => console.log('Snakes be on a plane!');
 }
-
-Reptile.prototype = Object.create(Animal.prototype);
 

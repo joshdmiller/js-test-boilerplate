@@ -27,4 +27,3 @@ test( 'doubleEach', function ( test ) {
 
   test.end();
 });
-

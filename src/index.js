@@ -16,20 +16,14 @@ export function doubleEach ( arr ) {
   return arr.map( double );
 }
 
-export function Animal() {};
+export const Animal = stampit({
+  methods: {
+    speak(sound) {
+      return sound;
+    }
+  }
+});
 
-Animal.prototype.speak = function(sound) {
-  return sound;
-}
-
-export function Reptile() {};
-
-Reptile.prototype = Object.create(Animal.prototype);
-
-export function Primate() {};
-
-Primate.prototype = Object.create(Animal.prototype);
-
-export function Human() {};
-
-Human.prototype = Object.create(Primate.prototype);
+export const Reptile = stampit.compose(Animal);
+export const Primate = stampit.compose(Animal);
+export const Human = stampit.compose(Primate);

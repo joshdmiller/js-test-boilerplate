@@ -1,5 +1,7 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach, Animal, Reptile, Primate, Human } from './index';
+import { double, doubleXTimes, doubleEach, Animal, Reptile, Primate, Human} from './index';
+import stampit from 'stampit';
+import isStamp from 'stampit/isStamp';
 
 test( 'double fn', function ( test ) {
   const actual = double( 5 );
@@ -29,58 +31,13 @@ test( 'doubleEach', function ( test ) {
 });
 
 test('Animal exists', function(test) {
-  const animal = new Animal();
-
-  test.ok( animal instanceof Animal, 'should create an instance of Animal' );
-  test.end();
-});
-
-test('Animal has speak method', function(test) {
-  const animal = new Animal();
-  const expected = 'generic sound';
-  const actual = animal.speak(expected);
-
-  test.equal( actual, expected, 'should make a generic sound when it speaks' );
-  test.end();
-});
-
-test('Checks Animal inheritance', function(test) {
-  let actual, expected;
-
-  const reptile = new Reptile();
-
-  test.ok( reptile instanceof Reptile, 'should be an instance of Reptile' );
-  test.ok( reptile instanceof Animal, 'should be an instance of Animal' );
-
-  expected = Reptile.SOUND;
-  actual = reptile.speak();
-  test.equal( actual, expected, 'should make a reptile sound when it speaks' );
-
-  const primate = new Primate();
-
-  test.ok( primate instanceof Primate, 'should be an instance of Primate' );
-  test.ok( primate instanceof Animal, 'should be an instance of Animal' );
-
-  expected = Primate.SOUND;
-  actual = primate.speak();
-  test.equal( actual, expected, 'should make a primate sound when it speaks' );
-
-  test.end();
-});
-
-test('Adds Human', function(test) {
-  let actual, expected;
-
-  const human = new Human();
-
-  test.ok( human instanceof Human, 'should be an instance of Human' );
-  test.ok( human instanceof Primate, 'should be an instance of Primate' );
-  test.ok( human instanceof Animal, 'should be an instance of Animal' );
-
-  const message = 'hello';
-  expected = message;
-  actual = human.speak( message );
-  test.equal( actual, expected, 'should speak what it is asked to speak' );
-
+  const animal = stampit().compose(Animal);
+  console.log( animal().speak('bark bark bark') );
+  // console.log('4. Animalxxxx', Animal.hasCreated(animal));
+  console.log('1. animal', animal);
+  // console.log('2. isStamp(Animal)', isStamp(Animal) );
+  // console.log('3. isstamp(animal)', isStamp(animal) );
+  test.ok( isStamp(Animal), 'Animal is a stamp' );
+  test.ok( '?', 'animal is an instance of Animal' );
   test.end();
 });

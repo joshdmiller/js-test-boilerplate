@@ -37,6 +37,9 @@ test('Animal exists', function(test) {
 
 test('Animal has speak method', function(test) {
   const animal = new Animal();
+
+  test.ok( typeof animal.speak === 'function', 'animal has method called speak' );
+
   const expected = 'generic sound';
   const actual = animal.speak(expected);
 

@@ -53,7 +53,7 @@ test('Test to see if "Primates" and "Reptiles" can be made from "Animals"', func
     test.ok( reptile instanceof Reptile, 'should be an instance of Reptile' );
     test.ok( reptile instanceof Animal, 'should be an instance of Animal' );
 
-    expected = reptile.SOUND;
+    expected = Reptile.SOUND;
     actual = reptile.speak();
     test.equal( actual, expected, 'should make a reptile sound when it speaks' );
 
@@ -62,7 +62,7 @@ test('Test to see if "Primates" and "Reptiles" can be made from "Animals"', func
     test.ok( primate instanceof Primate, 'should be an instance of Primate' );
     test.ok( primate instanceof Animal, 'should be an instance of Animal' );
 
-    expected = primate.SOUND;
+    expected = Primate.SOUND;
     actual = primate.speak();
     test.equal( actual, expected, 'should make a primate sound when it speaks' );
 
@@ -83,4 +83,5 @@ test('Test to see if a human can be made and it can speak', function (test) {
     expected = message;
     actual = human.speak( message );
     test.equal( actual, expected, 'should speak what it is asked to speak' );
+    test.end();
 });

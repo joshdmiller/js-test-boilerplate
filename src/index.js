@@ -16,26 +16,30 @@ export function doubleXTimes ( x, num ) {
 export const doubleEach = x => x.map(double);
 
 export function Animal() {
-    this.SOUND = 'generic sound';
+    this.clorophyll = false;
 }
-Animal.prototype.speak = function () {return this.SOUND};
+Animal.SOUND = 'generic sound';
+Animal.prototype.speak = function () {return this.constructor.SOUND};
 
 export function Reptile() {
-    this.SOUND = 'Roar';
+    this.scales = true;
 }
 
+Reptile.SOUND = 'Roar';
 Reptile.prototype = new Animal();
 Reptile.prototype.constructor = Reptile;
 
 export function Primate() {
-    this.SOUND = 'Ooh Ooh Eee!';
+    this.thumbs = true;
 }
+Primate.SOUND = 'Ooh ooh eee!';
 Primate.prototype = new Animal();
 Primate.prototype.constructor = Primate;
 
 export function Human() {
-    this.SOUND = 'hello';
+    this.sentience = true;
 }
+Human.SOUND = 'hello';
 Human.prototype = new Primate();
 Human.prototype.constructor = Human;
 

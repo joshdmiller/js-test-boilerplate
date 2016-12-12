@@ -1,39 +1,15 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach, Animal, Reptile, Primate, Human } from './index';
+import { Animal, Reptile, Primate, Human } from './index';
 
-test( 'double fn', function ( test ) {
-  const actual = double( 5 );
-  const expected = 10;
-
-  test.equal( actual, expected, 'should double the value' );
-
-  test.end();
-});
-
-test( 'doubleXTimes', function ( test ) {
-  const actual = doubleXTimes( 5, 3 );
-  const expected = 40;
-
-  test.equal( actual, expected, 'should double 5 three times' );
-
-  test.end();
-});
-
-test( 'doubleEach', function ( test ) {
-  const actual = doubleEach([ 0, 1, 2 ]);
-  const expected = [ 0, 2, 4 ];
-
-  test.deepEqual( actual, expected, 'should double each in the array' );
-
-  test.end();
-});
-
-test('Animal exists', function(test) {
+test('Animal is a constructor', function(test) {
   const animal = new Animal();
 
   test.ok( animal instanceof Animal, 'should create an instance of Animal' );
+
   test.end();
 });
+
+
 
 test('Animal has speak method', function(test) {
   const animal = new Animal();
@@ -41,11 +17,15 @@ test('Animal has speak method', function(test) {
   test.ok( typeof animal.speak === 'function', 'animal has method called speak' );
 
   const expected = 'generic sound';
-  const actual = animal.speak(expected);
+  const actual = animal.speak();
 
-  test.equal( actual, expected, 'should make a generic sound when it speaks' );
+  test.equal( actual, expected, 'animal can speak' );
+
+
   test.end();
 });
+
+
 
 test('Checks Animal inheritance', function(test) {
   let actual, expected;
@@ -70,6 +50,8 @@ test('Checks Animal inheritance', function(test) {
 
   test.end();
 });
+
+
 
 test('Adds Human', function(test) {
   let actual, expected;

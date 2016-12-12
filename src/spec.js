@@ -77,6 +77,20 @@ test ( 'animal inheritance', function ( test ) {
 
 });
 
+test ( 'reptile prototypes', function ( test ) {
+
+  const reptile1 = new Reptile();
+  const reptile2 = new Reptile();
+
+  test.equal( reptile1.speak, reptile2.speak, 'all Reptiles should use the same prototype function' );
+
+  test.end();
+
+});
+
+
+
+
 test ( 'human inheritance', function ( test ) {
 
   let actual, expected;

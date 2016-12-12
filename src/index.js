@@ -13,14 +13,31 @@ export function doubleXTimes ( x, num ) {
   return result;
 }
 
-export function doubleEach ( arr ) {
-  let result = arr.map( double );
+export const doubleEach = x => x.map(double);
 
-  // const result = arr.map( x => double( x ) );
-  // const result = arr.map( function ( x ) {
-  //   return double( x );
-  // });
-
-  return result;
+export function Animal() {
+    this.SOUND = 'generic sound';
 }
+Animal.prototype.speak = function () {return this.SOUND};
+
+export function Reptile() {
+    this.SOUND = 'Roar';
+}
+
+Reptile.prototype = new Animal();
+Reptile.prototype.constructor = Reptile;
+
+export function Primate() {
+    this.SOUND = 'Ooh Ooh Eee!';
+}
+Primate.prototype = new Animal();
+Primate.prototype.constructor = Primate;
+
+export function Human() {
+    this.SOUND = 'hello';
+}
+Human.prototype = new Primate();
+Human.prototype.constructor = Human;
+
+
 

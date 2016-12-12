@@ -15,35 +15,23 @@ export function doubleXTimes ( x, num ) {
 
 export const doubleEach = x => x.map(double);
 
-export function Animal() {
-    this.clorophyll = false;
-}
+export function Animal(){}
 Animal.SOUND = 'generic sound';
 Animal.prototype.speak = function () {return Animal.SOUND};
 
-export function Reptile() {
-    this.scales = true;
-}
-
+export function Reptile(){}
 Reptile.SOUND = 'Roar';
-Reptile.prototype = new Animal();
-Reptile.prototype.constructor = Reptile;
+Reptile.prototype = Object.create(Animal.prototype);
 Reptile.prototype.speak = function () {return Reptile.SOUND};
 
-export function Primate() {
-    this.thumbs = true;
-}
+export function Primate(){}
 Primate.SOUND = 'Ooh ooh eee!';
-Primate.prototype = new Animal();
-Primate.prototype.constructor = Primate;
+Primate.prototype = Object.create(Animal.prototype);
 Primate.prototype.speak = function () {return Primate.SOUND};
 
-export function Human() {
-    this.sentience = true;
-}
+export function Human(){}
 Human.SOUND = 'hello';
-Human.prototype = new Primate();
-Human.prototype.constructor = Human;
+Human.prototype = Object.create(Primate.prototype);
 Human.prototype.speak = function () {return Human.SOUND};
 
 

@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 //
 export const Animal = stampit({
-  props: {
+  properties: {
     SOUND: "generic sound"
   },
   methods: {
@@ -11,8 +11,8 @@ export const Animal = stampit({
   }
 });
 
-export const Reptile = stampit().compose(Animal);
+export const Reptile = stampit().compose(Animal).properties({SOUND: 'reptile sound'});
 
-export const Primate = stampit().compose(Animal);
+export const Primate = stampit().compose(Animal).properties({SOUND: 'primate sound'});
 
-export const Human = stampit().compose(Primate);
+export const Human = stampit().compose(Primate).properties({SOUND: 'human sound'});

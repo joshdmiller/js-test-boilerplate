@@ -1,26 +1,18 @@
-export function double ( x ) {
-  return x * 2;
-}
-
-export function doubleXTimes ( x, num ) {
-  let result = x;
-
-  for ( let i = 1; i <= num; i++ ) {
-    // result = result * 2;
-    result = double( result );
+import stampit from 'stampit';
+//
+export const Animal = stampit({
+  properties: {
+    SOUND: "generic sound"
+  },
+  methods: {
+    speak(sound = this.SOUND) {
+      return sound;
+    }
   }
+});
 
-  return result;
-}
+export const Reptile = stampit().compose(Animal).properties({SOUND: 'reptile sound'});
 
-export function doubleEach ( arr ) {
-  let result = arr.map( double );
+export const Primate = stampit().compose(Animal).properties({SOUND: 'primate sound'});
 
-  // const result = arr.map( x => double( x ) );
-  // const result = arr.map( function ( x ) {
-  //   return double( x );
-  // });
-
-  return result;
-}
-
+export const Human = stampit().compose(Primate).properties({SOUND: 'human sound'});

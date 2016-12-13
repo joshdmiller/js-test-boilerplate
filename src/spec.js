@@ -1,30 +1,62 @@
 import test from 'tape';
-import { double, doubleXTimes, doubleEach } from './index';
+import { Animal, Reptile, Primate, Human } from './index';
+import stampit from 'stampit';
+// import isStamp from 'stampit/isStamp';
 
-test( 'double fn', function ( test ) {
-  const actual = double( 5 );
-  const expected = 10;
+test('Can create "stamps?" from Animal stamp', function(test) {
 
-  test.equal( actual, expected, 'should double the value' );
+  const animal = Animal();
 
-  test.end();
-});
+  test.ok( typeof animal.speak == 'function', 'animal has a speak function.. "looks like an Animal"' );
 
-test( 'doubleXTimes', function ( test ) {
-  const actual = doubleXTimes( 5, 3 );
-  const expected = 40;
+  test.equal( animal.speak(), 'generic sound', 'Sounds like an Animal');
 
-  test.equal( actual, expected, 'should double 5 three times' );
+  console.log('* Animal says: ' + animal.speak() );
+  // Must be an Animal?
 
   test.end();
 });
 
-test( 'doubleEach', function ( test ) {
-  const actual = doubleEach([ 0, 1, 2 ]);
-  const expected = [ 0, 2, 4 ];
 
-  test.deepEqual( actual, expected, 'should double each in the array' );
+test('More "inheritance" stamp tests', function(test) {
+
+  let actual, expected;
+
+  const reptile = Reptile();
+
+  test.ok( typeof reptile.speak == 'function', 'reptile has a speak function.. "looks like an Animal"' );
+
+  expected = reptile.SOUND;
+  actual = reptile.speak();
+  console.log('* reptile says: ', actual);
+  test.equal( actual, expected, 'should make a reptile sound when it speaks.. "Sounds like a Reptile"' );
+
+  const primate = Primate();
+
+  test.ok( typeof primate.speak == 'function', 'primate has a speak function.. "looks like an Animal"' );
+
+  expected = primate.SOUND;
+  actual = primate.speak();
+  console.log('* primate says: ', actual);
+  test.equal( actual, expected, 'should make a primate sound when it speaks.. Sounds like a Primate' );
 
   test.end();
 });
 
+
+test('Human tests...', function(test) {
+
+  let actual, expected;
+
+  const human = Human();
+  //hmmmmm
+  test.ok( typeof human.speak == 'function', 'reptile has a speak function.. "looks like an Animal"' );
+
+  const message = 'hello';
+  expected = message;
+  actual = human.speak( message );
+  console.log('* human says: ', actual);
+  test.equal( actual, expected, 'should make a primate sound when it speaks.. Sounds like a Primate' );
+
+  test.end();
+});

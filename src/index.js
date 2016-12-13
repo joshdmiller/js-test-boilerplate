@@ -2,15 +2,14 @@ import stampit from 'stampit';
 //
 export const Animal = stampit({
   props: {
-    SOUND: "Generic sound"
+    SOUND: "generic sound"
   },
   methods: {
-    speak(sound) {
+    speak(sound = this.SOUND) {
       return sound;
     }
   }
 });
-
 
 export const Reptile = stampit().compose(Animal);
 

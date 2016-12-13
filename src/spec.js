@@ -9,6 +9,17 @@ test('Can create instances from Animal stamp', function(test) {
   test.end();
 });
 
+
+test('x', function(test) {
+  const animal = new Animal();
+  const expected = 'generic sound';
+  const actual = animal.speak();
+
+  test.equal( actual, expected, 'should make a generic sound when it speaks' );
+  test.end();
+});
+
+
 test('More "inheritance" stamp tests', function(test) {
   let actual, expected;
 
@@ -21,14 +32,14 @@ test('More "inheritance" stamp tests', function(test) {
   actual = reptile.speak(expected);
   test.equal( actual, expected, 'should make a reptile sound when it speaks' );
 
-  const primate = Primate();
+  // const primate = Primate();
 
-  test.ok( primate instanceof Primate, 'should be an instance of Primate' );
-  test.ok( primate instanceof Animal, 'should be an instance of Animal' );
+  // test.ok( primate instanceof Primate, 'should be an instance of Primate' );
+  // test.ok( primate instanceof Animal, 'should be an instance of Animal' );
 
-  expected = Primate.SOUND;
-  actual = primate.speak();
-  test.equal( actual, expected, 'should make a primate sound when it speaks' );
+  // expected = Primate.SOUND;
+  // actual = primate.speak();
+  // test.equal( actual, expected, 'should make a primate sound when it speaks' );
 
-  test.end();
+  // test.end();
 });

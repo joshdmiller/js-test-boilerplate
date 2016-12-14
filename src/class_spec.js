@@ -1,5 +1,8 @@
+/**
+ * Created by towershine on 12/13/16.
+ */
 import test from 'tape';
-import {Animal, Reptile, Primate, Human} from './index';
+import {Animal, Reptile, Primate, Human} from './index_classes';
 
 
 test('Test to see if a new "Animal" instance can be created', function (test) {

@@ -12,7 +12,7 @@ export function Reptile() {
 }
 
 export function Primate() {
-    this.SOUND = 'primate sound'
+    this.SOUND = 'primate sound';
 }
 
 Reptile.prototype = Object.create(Animal.prototype)
@@ -24,6 +24,14 @@ Reptile.prototype.speak = function () {
 
 Primate.prototype = Object.create(Animal.prototype)
 
-Primate.prototype.speak = function (sound) {
+Primate.prototype.speak = function () {
     return this.SOUND;
+}
+
+export function Human() {}
+
+Human.prototype = Object.create(Primate.prototype)
+
+Human.prototype.speak = function (word) {
+    return word
 }

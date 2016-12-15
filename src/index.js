@@ -30,8 +30,5 @@ Primate.prototype = Object.create(Animal.prototype);
 Primate.prototype.speak = function () {return Primate.SOUND};
 
 export function Human(){}
-Human.SOUND = 'hello';
 Human.prototype = Object.create(Primate.prototype);
-Human.prototype.speak = function () {return Human.SOUND};
-
-
+Human.prototype.speak = function (message) {return message};

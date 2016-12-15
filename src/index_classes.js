@@ -35,8 +35,7 @@ export class Human extends Primate {
     constructor() {
         super();
     }
-    static SOUND = 'hello';
-    speak() {
-        return Human.SOUND;
+    speak(message) {
+        return message;
     }
 }

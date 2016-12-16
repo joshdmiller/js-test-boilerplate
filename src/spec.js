@@ -37,8 +37,7 @@ test('Create two new constructors with prototypes that inherit from Animal: Rept
   test.ok( reptile instanceof Animal, 'should be an instance of Animal' );
 
   expected = Reptile.SOUND;
-  // "It is in uppercase because that's a common convention
-  // for constants defined on the constructor rather than on the prototype."
+
   actual = reptile.speak();
   console.log(`* Reptile says, "${actual}"`);
   test.equal( actual, expected, 'should make a reptile sound when it speaks' );

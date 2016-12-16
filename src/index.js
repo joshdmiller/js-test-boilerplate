@@ -1,26 +1,28 @@
-export function double ( x ) {
-  return x * 2;
+
+const Animal = function() {};
+Animal.prototype = function() {};
+Animal.prototype.speak = function() {
+  return 'generic sound';
 }
 
-export function doubleXTimes ( x, num ) {
-  let result = x;
+const Reptile = function() {};
+Reptile.prototype = Object.create(Animal.prototype);
+Reptile.SOUND = 'Slither slither';
+Reptile.prototype.speak = function(sound = Reptile.SOUND) {
+  return Reptile.SOUND;
+};
 
-  for ( let i = 1; i <= num; i++ ) {
-    // result = result * 2;
-    result = double( result );
-  }
+const Primate = function() {};
+Primate.prototype = Object.create(Animal.prototype);
+Primate.SOUND = 'Ug ug';
+Primate.prototype.speak = function(sound = Primate.SOUND) {
+  return Primate.SOUND;
+};
 
-  return result;
-}
+const Human = function() {};
+Human.prototype = Object.create(Primate.prototype);
+Human.prototype.speak = function(sound) {
+  return sound;
+};
 
-export function doubleEach ( arr ) {
-  let result = arr.map( double );
-
-  // const result = arr.map( x => double( x ) );
-  // const result = arr.map( function ( x ) {
-  //   return double( x );
-  // });
-
-  return result;
-}
-
+export { Animal, Reptile, Primate, Human };
